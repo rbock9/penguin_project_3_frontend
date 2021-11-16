@@ -1,4 +1,4 @@
-# Group Project (Bookmark'd) - Rob Bock, Jeff Li, Seb Patin
+# Group Project (Amiibo App) - Rob Bock, Jeff Li, Seb Patin
 #### Frontend Readme By Rob Bock
 
 - This application will be used to keep a list of amiibos that the user owns, and a wishlist for what amiibos the user would like to buy
