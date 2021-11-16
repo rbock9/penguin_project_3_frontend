@@ -25,11 +25,11 @@
 ```
 -> App
   -> Header
-  -> Main |state: bookmarks|
+  -> Main |state: amiibos|
     -> Routes
       -> Route |path: "/"|
         -> Index |Props: amiibo|
-      -> Route |path="/bookmarks/:id|
+      -> Route |path="/amiibos/:id|
         -> Show |Props: amiibo, addWishList, addToOwned|
 ```
 ## Frontend React Router Route Table
