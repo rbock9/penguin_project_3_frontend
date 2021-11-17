@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom";
+
 function Header(props) {
-    return <h1>This is Header</h1>;
+  return (
+    <nav className="nav">
+      <Link to="/">
+        <div>Amiibo App</div>
+      </Link>
+    </nav>
+  );
 }
-  
+
 export default Header;
