@@ -10,20 +10,20 @@ const Show = (props) => {
   const id = params.id;
   // grab amiibos from props
   const amiibos = props.amiibos;
+  console.log(amiibos)
   // create state for form
   const [editForm, setEditForm] = useState({})
   // useEffect to set state to the existing amiibos, when the data is available
-  useEffect(() => {
-      if(props.amiibos){
-          const amiibo = amiibos.find((a) => a._id === id);
-          setEditForm(amiibo)
-      }
-  }, [props.amiibos])
+  // useEffect(() => {
+  //     if(props.amiibos){
+  //         const amiibo = amiibos.find((a) => a._id === id);
+  //         setEditForm(amiibo)
+  //     }
+  // }, [props.amiibos])
 
   if (props.amiibos) {
     // grab the target amiibo from the amiibos array
     const amiibo = amiibos.find((a) => a._id === id);
-    
     // handleChange function for form
     const handleChange = (event) => {
         // create a copy of the state
@@ -32,6 +32,7 @@ const Show = (props) => {
         newState[event.target.name] = event.target.value
         // update the state
         setEditForm(newState)
+ 
     }
 
     // handleSubmit for form
@@ -112,7 +113,8 @@ const Show = (props) => {
         <img src={amiibo.image} alt={amiibo.name} />
         <h3>{amiibo.character}</h3>
         <h3>{amiibo.gameSeries}</h3>
-        <h3>{amiibo.release}</h3>
+        {/* <h3>{amiibo.release}</h3> */}
+        {/* This is logging an object (check the release object in the api) */}
         <h3>{amiibo.type}</h3>
         {form}
         <button onClick={removeAmiibo}>DELETE Amiibo</button>
