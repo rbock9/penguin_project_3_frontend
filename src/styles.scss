@@ -4,22 +4,26 @@ $red: #F4989C;
 $purple: #DAC4F7;
 $green: #D6F6DD;
 
-@mixin centerChild ($width) {
+@mixin displayFlex ($justify ,$width, $direction) {
   display: flex;
-  justify-content: center;
+  justify-content: $justify;
   width: $width;
+  flex-direction: $direction;
 }
 
 main {
-  @include centerChild(100%)
 }
 
 .indexAmiibos {
-  border: solid 2px blue;
-  
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .amiibo {
   width: 25%;
-
 }
+
+.createForm {
+  @include displayFlex(center ,100%, column)
+}
+

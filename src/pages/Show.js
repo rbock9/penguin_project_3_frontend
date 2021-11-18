@@ -110,7 +110,7 @@ const Show = (props) => {
       <div className="amiibo">
         <h1>{amiibo.name}</h1>
         <h2>{amiibo.amiiboSeries}</h2>
-        <img src={amiibo.image} alt={amiibo.name} />
+        <img className="indexImg" src={amiibo.image} alt={amiibo.name} />
         <h3>{amiibo.character}</h3>
         <h3>{amiibo.gameSeries}</h3>
         {/* <h3>{amiibo.release}</h3> */}

@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.indexAmiiboImg {
+  max-height: 200px;
+}
