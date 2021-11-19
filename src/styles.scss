@@ -11,9 +11,6 @@ $green: #D6F6DD;
   flex-direction: $direction;
 }
 
-main {
-}
-
 .indexAmiibos {
   display: flex;
   flex-wrap: wrap;
@@ -26,4 +23,3 @@ main {
 .createForm {
   @include displayFlex(center ,100%, column)
 }
-
