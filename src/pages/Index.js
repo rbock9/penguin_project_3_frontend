@@ -39,10 +39,10 @@ function Index(props) {
     return props.amiibos.map((amiibo) => (
       <div key={amiibo._id} className="amiibo">
         <Link to={`/amiibos/${amiibo._id}`}>
-          <h1>{amiibo.name}</h1>
+          <h4 className="indexAmiiboTitle">{amiibo.name}</h4>
         </Link>
-        <img src={amiibo.image} alt={amiibo.name} />
-        <h3>{amiibo.amiiboSeries}</h3>
+        <img class="responsive-img indexAmiiboImg" src={amiibo.image} alt={amiibo.name} />
+        <h5 className="indexAmiiboSeries">{amiibo.amiiboSeries}</h5>
       </div>
     ));
   };
@@ -51,8 +51,8 @@ function Index(props) {
     return <h1>Loading...</h1>;
   };
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <div className="index container">
+      <form class="createForm" onSubmit={handleSubmit}>
         <input
           type="text"
           value={newForm.name}
@@ -104,8 +104,10 @@ function Index(props) {
         />
         <input type="submit" value="Create Amiibo" />
       </form>
+    <section className="indexAmiibos">
       {props.amiibos ? loaded() : loading()}
     </section>
+    </div>
   );
 }
 
