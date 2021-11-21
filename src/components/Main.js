@@ -6,7 +6,8 @@ import Show from "../pages/Show";
 function Main(props) {
   const [amiibos, setAmiibos] = useState(null);
 
-  const URL = "https://rbock9-penguin-project3.herokuapp.com/amiibos/";
+  const URL = "https://rbock-myamiibo-app-backend.herokuapp.com/amiibos/";
+//   const URL = "https://rbock9-penguin-project3.herokuapp.com/amiibos/"
 
   const getAmiibos = async () => {
     const response = await fetch(URL);

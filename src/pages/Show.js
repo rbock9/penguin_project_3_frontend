@@ -10,20 +10,20 @@ const Show = (props) => {
   const id = params.id;
   // grab amiibos from props
   const amiibos = props.amiibos;
-  console.log(amiibos)
   // create state for form
   const [editForm, setEditForm] = useState({})
   // useEffect to set state to the existing amiibos, when the data is available
-  // useEffect(() => {
-  //     if(props.amiibos){
-  //         const amiibo = amiibos.find((a) => a._id === id);
-  //         setEditForm(amiibo)
-  //     }
-  // }, [props.amiibos])
+  useEffect(() => {
+      if(props.amiibos){
+          const amiibo = amiibos.find((a) => a._id === id);
+          setEditForm(amiibos)
+      }
+  }, [props.amiibos])
 
   if (props.amiibos) {
     // grab the target amiibo from the amiibos array
     const amiibo = amiibos.find((a) => a._id === id);
+    
     // handleChange function for form
     const handleChange = (event) => {
         // create a copy of the state
@@ -32,7 +32,6 @@ const Show = (props) => {
         newState[event.target.name] = event.target.value
         // update the state
         setEditForm(newState)
- 
     }
 
     // handleSubmit for form
@@ -52,72 +51,63 @@ const Show = (props) => {
 
     const form = (
         <form onSubmit={handleSubmit}>
-            <input
+          <input
             type="text"
             value={editForm.name}
             name="name"
-            placeholder="name of amiibo"
+            placeholder="Name of Amiibo"
             onChange={handleChange}
-            />
-            <input
+          />
+          <input
             type="text"
             value={editForm.image}
             name="image"
-            placeholder="image URL"
+            placeholder="Image URL"
             onChange={handleChange}
-            />
-            <input
-            type="text"
-            value={editForm.amiiboSeries}
-            name="amiiboSeries"
-            placeholder="amiibo series"
-            onChange={handleChange}
-            />
-            <input
-            type="text"
-            value={editForm.character}
-            name="character"
-            placeholder="character amiibo depicts"
-            onChange={handleChange}
-            />
-            <input
+          />
+          <input
             type="text"
             value={editForm.gameSeries}
             name="gameSeries"
-            placeholder="game series amiibo is from"
+            placeholder="Game Series Amiibo is From"
             onChange={handleChange}
-            />
-            <input
+          />
+          <input
             type="text"
-            value={editForm.release}
-            name="release"
-            placeholder="release date of amiibo"
+            value={editForm.amiiboSeries}
+            name="amiiboSeries"
+            placeholder="Amiibo Series"
             onChange={handleChange}
-            />
-            <input
+          />
+           <input
+            type="text"
+            value={editForm.character}
+            name="character"
+            placeholder="Character the Amiibo Depicts"
+            onChange={handleChange}
+          />
+          <input
             type="text"
             value={editForm.type}
             name="type"
-            placeholder="amiibo type (card, figure, etc.)"
+            placeholder="Type of Amiibo (Figure, card, etc.)"
             onChange={handleChange}
-            />
-          <input type="submit" value="Update Amiibo" /> 
-          {/* (If broken, change value in above line to Update Amiibos instead of Update Amiibo) */}
+          />
+          <input type="submit" value="Update Amiibo" />
         </form>
       );
 
     return (
       <div className="amiibo">
         <h1>{amiibo.name}</h1>
-        <h2>{amiibo.amiiboSeries}</h2>
-        <img className="indexImg" src={amiibo.image} alt={amiibo.name} />
-        <h3>{amiibo.character}</h3>
-        <h3>{amiibo.gameSeries}</h3>
-        {/* <h3>{amiibo.release}</h3> */}
-        {/* This is logging an object (check the release object in the api) */}
-        <h3>{amiibo.type}</h3>
+        <h2>{amiibo.gameSeries}</h2>
+        <img src={amiibo.image} alt={amiibo.name} />
+        <h3>Character: {amiibo.character}</h3>
+        <h3>Game Series: {amiibo.gameSeries}</h3>
+        <h3>Amiibo Series: {amiibo.amiiboSeries} </h3>
+        <h3>Amiibo Type: {amiibo.type} </h3>
         {form}
-        <button onClick={removeAmiibo}>DELETE Amiibo</button>
+        <button onClick={removeAmiibo}>Delete Amiibo</button>
       </div>
     );
   } else {
