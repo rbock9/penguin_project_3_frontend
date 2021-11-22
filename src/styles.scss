@@ -1,76 +1,29 @@
-// --------------------------
-// VARIABLES
-// --------------------------
-$maincolor: black;
-$contrastcolor: white;
+$blue: #ACECF7;
+$orange: #EBD2B4;
+$red: #F4989C;
+$purple: #DAC4F7;
+$green: #D6F6DD;
 
-@mixin white-text-black-bg {
-  color: $contrastcolor;
-  background-color: $maincolor;
+@mixin displayFlex ($justify ,$width, $direction) {
+  display: flex;
+  justify-content: $justify;
+  width: $width;
+  flex-direction: $direction;
 }
 
-@mixin black-test-white-bg {
-  color: $maincolor;
-  background-color: $contrastcolor;
+main {
 }
 
-// --------------------------
-// Header
-// --------------------------
-
-nav {
-    @include white-text-black-bg;
-    display: flex;
-    justify-content: flex-start;
-  
-    a {
-      @include white-text-black-bg;
-      div {
-        margin: 10px;
-        font-size: large;
-      }
-    }
+.indexAmiibos {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-// --------------------------
-// Form
-// --------------------------
-
-section,
-div {
-  form {
-    input {
-      @include white-text-black-bg;
-      padding: 10px;
-      font-size: 1.1em;
-      margin: 10px;
-
-      &[type="submit"]:hover {
-        @include black-test-white-bg;
-      }
-    }
-  }
+.amiibo {
+  width: 25%;
 }
 
-// --------------------------
-// button
-// --------------------------
-
-button#delete {
-  @include white-text-black-bg;
-  display: block;
-  margin: auto;
-  font-size: 1.3em;
-  padding: 10px;
+.createForm {
+  @include displayFlex(center ,100%, column)
 }
 
-// --------------------------
-// images
-// --------------------------
-
-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 90px;
-  object-fit: cover;
-}
