@@ -3,27 +3,119 @@ $orange: #EBD2B4;
 $red: #F4989C;
 $purple: #DAC4F7;
 $green: #D6F6DD;
+$YanFont: 'Yantramanav', sans-serif;
 
-@mixin displayFlex ($justify ,$width, $direction) {
+@mixin displayFlex ( $width, $direction) {
   display: flex;
-  justify-content: $justify;
+  justify-content: center;
   width: $width;
   flex-direction: $direction;
-}
-
-main {
+  align-items: center;
 }
 
 .indexAmiibos {
   display: flex;
   flex-wrap: wrap;
+  transition: 250ms;
 }
 
 .amiibo {
-  width: 25%;
+  width: 150px;
+  max-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+a{
+  transition: 250ms;
+}
+
+a:hover {
+  // background-color: #ACECF7;
+  transform: scale(1.1);
+  transition: 250ms ease-out;
+}
+
+.amiiboImg {
+  max-height: 150px;
+}
+
+.indexAmiiboTitle {
+  font-size: 20px;
+  text-align: center;
+  font-family: $YanFont;
+  font-weight: 700;
+  color: red;
+}
+
+h5 {
+  font-size: 12px;
 }
 
 .createForm {
-  @include displayFlex(center ,100%, column)
+  @include displayFlex(100%, column)
 }
 
+.headerText {
+  text-align: center;
+  font-size: 3rem;
+  margin: 0;
+}
+
+nav{
+  background-color: red;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button{
+  background-color: red !important;
+  transition: 250ms;
+  width: 25%;
+
+}
+
+.button:hover{
+  transition: 250ms;
+  transform: scale(.95)
+}
+
+.button:focus{
+  background-color: yellow;
+}
+
+@media screen and (max-width: 600px) {
+  .button{ 
+    font-size: 10px !important;    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .button{ 
+    font-size: 6px !important;    justify-content: center;
+    padding: 1px;
+  }
+}
+
+main {
+  margin-right: 0px;
+  // @include displayFlex(70%, column);
+
+}
+
+.amiiboShow {
+  justify-content: left;
+  margin-right: 0px;
+  width: 50%;
+}
+
+body {
+  font-family: $YanFont;
+}
+
+//make the form in the modal

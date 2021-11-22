@@ -4,15 +4,13 @@ import { Link } from "react-router-dom";
 function Index(props) {
   // state to hold formData
   const [newForm, setNewForm] = useState({
-    amiiboSeries: "",
-    character: "",
+    name: "",
     gameSeries: "",
     image: "",
-    name: "",
-    release: "",
+    amiiboSeries: "",
+    character: "",
     type: "",
-    });
-
+  });
 
   // handleChange function for form
   const handleChange = (event) => {
@@ -22,15 +20,14 @@ function Index(props) {
   // handle submit function for form
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.createAmiibo(newForm);
+    props.createAmiibos(newForm);
     setNewForm({
-        amiiboSeries: "",
-        character: "",
-        gameSeries: "",
-        image: "",
-        name: "",
-        release: "",
-        type: "",
+      name: "",
+      gameSeries: "",
+      image: "",
+      amiiboSeries: "",
+      character: "",
+      type: "",
     });
   };
 
@@ -41,9 +38,13 @@ function Index(props) {
       <div key={amiibo._id} className="amiibo">
         <Link to={`/amiibos/${amiibo._id}`}>
           <h4 className="indexAmiiboTitle">{amiibo.name}</h4>
+        
+        <img className="amiiboImg" src={amiibo.image} alt={amiibo.name} />
+        {/* <h5>Character: {amiibo.character}</h5> */}
+        {/* <h5>Game Series: {amiibo.gameSeries}</h5>
+        <h5>Amiibo Series: {amiibo.amiiboSeries} </h5> */}
+        {/* <h5>{amiibo.type} </h5> */}
         </Link>
-        <img class="responsive-img indexAmiiboImg" src={amiibo.image} alt={amiibo.name} />
-        <h5 className="indexAmiiboSeries">{amiibo.amiiboSeries}</h5>
       </div>
     ));
   };
@@ -52,58 +53,52 @@ function Index(props) {
     return <h1>Loading...</h1>;
   };
   return (
+
     <div className="index container">
-      <form class="createForm" onSubmit={handleSubmit}>
+      <form className="createForm" onSubmit={handleSubmit}>
         <input
           type="text"
           value={newForm.name}
           name="name"
-          placeholder="name of amiibo"
+          placeholder="Name of Amiibo"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.image}
           name="image"
-          placeholder="image URL"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.amiiboSeries}
-          name="amiiboSeries"
-          placeholder="amiibo series"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={newForm.character}
-          name="character"
-          placeholder="character amiibo depicts"
+          placeholder="Image URL"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.gameSeries}
           name="gameSeries"
-          placeholder="game series amiibo is from"
+          placeholder="Game Series Amiibo is From"
           onChange={handleChange}
         />
         <input
           type="text"
-          value={newForm.release}
-          name="release"
-          placeholder="release date of amiibo"
+          value={newForm.amiiboSeries}
+          name="amiiboSeries"
+          placeholder="Amiibo Series"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          value={newForm.character}
+          name="character"
+          placeholder="Character the Amiibo Depicts"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.type}
           name="type"
-          placeholder="amiibo type (card, figure, etc.)"
+          placeholder="Type of Amiibo (Figure, card, etc.)"
           onChange={handleChange}
         />
-        <input type="submit" value="Create Amiibo" />
+        <input type="submit" className="btn button" value="Create Amiibo" />
       </form>
     <section className="indexAmiibos">
       {props.amiibos ? loaded() : loading()}
