@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-modal"
 
 function Index(props) {
   // state to hold formData
@@ -33,16 +34,24 @@ function Index(props) {
 
   // loaded function
   const loaded = () => {
+    console.log(props.amiibos)
+    
+     
+
     return props.amiibos.map((amiibo) => (
+
+
+
       <div key={amiibo._id} className="amiibo">
         <Link to={`/amiibos/${amiibo._id}`}>
-          <h1>{amiibo.name}</h1>
+          <h4 className="indexAmiiboTitle">{amiibo.name}</h4>
+        
+        <img className="amiiboImg" src={amiibo.image} alt={amiibo.name} />
+        {/* <h5>Character: {amiibo.character}</h5> */}
+        {/* <h5>Game Series: {amiibo.gameSeries}</h5>
+        <h5>Amiibo Series: {amiibo.amiiboSeries} </h5> */}
+        {/* <h5>{amiibo.type} </h5> */}
         </Link>
-        <img src={amiibo.image} alt={amiibo.name} />
-        <h3>Character: {amiibo.character}</h3>
-        <h3>Game Series: {amiibo.gameSeries}</h3>
-        <h3>Amiibo Series: {amiibo.amiiboSeries} </h3>
-        <h3>Amiibo Type: {amiibo.type} </h3>
       </div>
     ));
   };
@@ -50,9 +59,16 @@ function Index(props) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
+    
+        const [modalIsOpen, setModalIsOpen] = useState(false)
+
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <div className="index container">
+      <button className="button btn modalButton card " onClick={()=> setModalIsOpen(true)}>Create Amiibo</button>
+      <Modal className="createModal card-panel " isOpen={modalIsOpen}>
+        
+      <form className="createForm" onSubmit={handleSubmit}>
+        <button className="button btn X" onClick={()=> setModalIsOpen(false)}> Close Window </button>
         <input
           type="text"
           value={newForm.name}
@@ -95,10 +111,15 @@ function Index(props) {
           placeholder="Type of Amiibo (Figure, card, etc.)"
           onChange={handleChange}
         />
-        <input type="submit" value="Create Amiibo" />
+        <input type="submit" className="btn button white" value="Create Amiibo" />
       </form>
+      
+      </Modal>
+
+    <section className="indexAmiibos">
       {props.amiibos ? loaded() : loading()}
     </section>
+    </div>
   );
 }
 

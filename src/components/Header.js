@@ -4,7 +4,9 @@ function Header(props) {
   return (
     <nav className="nav">
       <Link to="/">
-        <div>MyAmiibos App</div>
+        <div className="containerHead">
+          <h1 className="headerText">myAmiibos App</h1>
+          </div>
       </Link>
     </nav>
   );

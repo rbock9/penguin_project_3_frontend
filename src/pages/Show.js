@@ -93,26 +93,32 @@ const Show = (props) => {
             placeholder="Type of Amiibo (Figure, card, etc.)"
             onChange={handleChange}
           />
-          <input type="submit" value="Update Amiibo" />
+          <input className="btn button"  type="submit" value="Update Amiibo" />
         </form>
       );
 
     return (
-      <div className="amiibo">
-        <h1>{amiibo.name}</h1>
-        <h2>{amiibo.gameSeries}</h2>
-        <img src={amiibo.image} alt={amiibo.name} />
-        <h3>Character: {amiibo.character}</h3>
-        <h3>Game Series: {amiibo.gameSeries}</h3>
-        <h3>Amiibo Series: {amiibo.amiiboSeries} </h3>
-        <h3>Amiibo Type: {amiibo.type} </h3>
-        {form}
-        <button onClick={removeAmiibo}>Delete Amiibo</button>
+      <div className="amiiboShow">
+        <div className="amiiboShowDiv container">
+        <img className="card" src={amiibo.image} alt={amiibo.name} />
+        <div className="amiiboShowText card">
+          <h1 className="amiiboShowName">{amiibo.name}</h1>
+          <h2 className="amiiboShowTitle">{amiibo.gameSeries}</h2>
+          <h4>Character: {amiibo.character}</h4>
+          <h4>Game Series: {amiibo.gameSeries}</h4>
+          <h4>Amiibo Series: {amiibo.amiiboSeries} </h4>
+          <h4>Amiibo Type: {amiibo.type} </h4>
+          </div>
+          </div>
+        <div className="editForm">{form}</div>
+        <button className="btn button" onClick={removeAmiibo}>Delete Amiibo</button>
       </div>
     );
   } else {
     return <h1>No Amiibos</h1>;
   }
 };
+
+//        <img src={amiibo.image} alt={amiibo.name} />
 
 export default Show;
