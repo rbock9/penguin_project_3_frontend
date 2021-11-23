@@ -65,9 +65,10 @@ function Index(props) {
   return (
     <div className="index container">
       <button className="button btn modalButton card " onClick={()=> setModalIsOpen(true)}>Create Amiibo</button>
-      <Modal className="createModal card-panel gray lighten-2" isOpen={modalIsOpen}>
+      <Modal className="createModal card-panel " isOpen={modalIsOpen}>
         
       <form className="createForm" onSubmit={handleSubmit}>
+        <button className="button btn X" onClick={()=> setModalIsOpen(false)}> Close Window </button>
         <input
           type="text"
           value={newForm.name}
@@ -110,9 +111,9 @@ function Index(props) {
           placeholder="Type of Amiibo (Figure, card, etc.)"
           onChange={handleChange}
         />
-        <input type="submit" className="btn button" value="Create Amiibo" />
+        <input type="submit" className="btn button white" value="Create Amiibo" />
       </form>
-      <button className="button btn X" onClick={()=> setModalIsOpen(false)}> X </button>
+      
       </Modal>
 
     <section className="indexAmiibos">
