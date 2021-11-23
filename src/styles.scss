@@ -103,19 +103,79 @@ nav{
 }
 
 main {
-  margin-right: 0px;
-  // @include displayFlex(70%, column);
+  margin: 0px auto;
+  @include displayFlex(100%, column);
 
 }
 
 .amiiboShow {
-  justify-content: left;
-  margin-right: 0px;
-  width: 50%;
+  @include displayFlex(70%, column);
+  margin: 2em auto;
 }
 
 body {
   font-family: $YanFont;
+}
+
+.amiiboShowText h1 {
+  font-size: 6rem;
+  font-weight: 1000;
+  font-family: $YanFont;
+  color: rgb(156, 0, 0);
+  margin: 3px auto;
+}
+
+.amiiboShowTitle {
+  font-size: 3rem
+}
+
+.amiiboShow h2 {
+  margin: 5px auto;
+}
+
+.amiiboShow h4 {
+  font-size: 1.2em;
+  margin: 20px auto;
+}
+
+.amiiboShowDiv {
+  @include displayFlex(100%, row-reverse);
+  margin: 0px;
+}
+
+.editForm {
+  margin-top: 2em !important;
+  width: 50%;
+}
+
+.amiiboShowDiv img {
+  height: 400px;
+  max-width: 400px;
+  margin: 0;
+}
+
+.amiiboShowText {
+  margin: 0px 2em;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+}
+
+.editForm form .button {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 194, 0) !important;
+  margin: 1em auto;
+}
+
+.editForm {
+  @include displayFlex(70%, column);
+}
+
+.amiiboShow button {
+  margin: 1em auto;
 }
 
 //make the form in the modal
