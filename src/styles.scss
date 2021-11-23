@@ -71,6 +71,7 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .button{
@@ -149,8 +150,7 @@ body {
 }
 
 .amiiboShowDiv img {
-  height: 400px;
-  max-width: 400px;
+  height: 25%;
   margin: 0;
 }
 
@@ -178,21 +178,27 @@ body {
   margin: 1em auto;
 }
 
+
+
 @media screen and (max-width: 500px) {
   .amiiboShowTitle {
     font-size: 1.5rem;
   }
   .amiiboShowDiv {
     font-size: 12px;
+    flex-direction: column;
   }
   .amiiboShowText h1 {
     font-size: 1em;
   }
-  .amiiboShowDiv img {
-    width: 10rem;
-    height: 10rem;
+  .amiiboShowText {
+    height: 23em;
+  }
+  .amiiboShowName {
+    font-size: 12px !important;
   }
 }
+
 
 @media screen and (max-width: 350px) {
   .amiiboShowTitle {
@@ -203,10 +209,6 @@ body {
   }
   .amiiboShowText h1 {
     font-size: 1em;
-  }
-  .amiiboShowDiv img {
-    width: 10rem;
-    height: 10rem;
   }
   .amiiboShow {
     margin: 0;
