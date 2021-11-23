@@ -118,11 +118,11 @@ body {
 }
 
 .amiiboShowText h1 {
-  font-size: 6rem;
+  font-size: 3rem;
   font-weight: 1000;
   font-family: $YanFont;
   color: rgb(156, 0, 0);
-  margin: 3px auto;
+  margin: 2rem auto;
 }
 
 .amiiboShowTitle {
@@ -130,7 +130,7 @@ body {
 }
 
 .amiiboShow h2 {
-  margin: 5px auto;
+  margin: 2rem auto;
 }
 
 .amiiboShow h4 {
@@ -178,4 +178,63 @@ body {
   margin: 1em auto;
 }
 
+@media screen and (max-width: 500px) {
+  .amiiboShowTitle {
+    font-size: 1.5rem;
+  }
+  .amiiboShowDiv {
+    font-size: 12px;
+  }
+  .amiiboShowText h1 {
+    font-size: 1em;
+  }
+  .amiiboShowDiv img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .amiiboShowTitle {
+    font-size: 1.5rem;
+  }
+  .amiiboShowDiv {
+    font-size: 12px;
+  }
+  .amiiboShowText h1 {
+    font-size: 1em;
+  }
+  .amiiboShowDiv img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .amiiboShow {
+    margin: 0;
+  }
+  main {
+    margin: 0;
+  }
+}
+
+.index {
+  @include displayFlex(100%, column);
+}
+
+.modalButton {
+  margin: 2rem;
+}
+
+.createModal {
+  margin: 5em auto;
+  background-color: white;
+  @include displayFlex(80%, column);
+  border-radius: 10px;
+  border: solid rgb(214, 214, 214) 2px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.096) 6px 6px 4px;
+}
+
+.X {
+  margin: 10px;
+}
 //make the form in the modal

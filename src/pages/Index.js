@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-modal"
 
 function Index(props) {
   // state to hold formData
@@ -34,7 +35,13 @@ function Index(props) {
   // loaded function
   const loaded = () => {
     console.log(props.amiibos)
+    
+     
+
     return props.amiibos.map((amiibo) => (
+
+
+
       <div key={amiibo._id} className="amiibo">
         <Link to={`/amiibos/${amiibo._id}`}>
           <h4 className="indexAmiiboTitle">{amiibo.name}</h4>
@@ -52,9 +59,14 @@ function Index(props) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
-  return (
+    
+        const [modalIsOpen, setModalIsOpen] = useState(false)
 
+  return (
     <div className="index container">
+      <button className="button btn modalButton card " onClick={()=> setModalIsOpen(true)}>Create Amiibo</button>
+      <Modal className="createModal card-panel gray lighten-2" isOpen={modalIsOpen}>
+        
       <form className="createForm" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -100,6 +112,9 @@ function Index(props) {
         />
         <input type="submit" className="btn button" value="Create Amiibo" />
       </form>
+      <button className="button btn X" onClick={()=> setModalIsOpen(false)}> X </button>
+      </Modal>
+
     <section className="indexAmiibos">
       {props.amiibos ? loaded() : loading()}
     </section>
